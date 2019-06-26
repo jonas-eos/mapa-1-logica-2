@@ -21,7 +21,7 @@ const char RA[] = "19953835";
 // - constante RA
 void preencherPonteiro(int *__ptr) {
   int index;
-  for (index = 0; index < sizeof(__ptr); index++) {
+  for (index = 0; index < strlen(RA); index++) {
     *(__ptr + index) = RA[index] - '0';
   }
 }
@@ -35,7 +35,7 @@ void preencherPonteiro(int *__ptr) {
 // - constante RA
 void exibirRa(const int *__ptr) {
   int index;
-  for (index = 0; index < sizeof(__ptr); index++) {
+  for (index = 0; index < strlen(RA); index++) {
     printf("%i\n", __ptr[index]);
   }
 }
