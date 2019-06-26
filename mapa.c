@@ -17,13 +17,11 @@ const char RA[] = "19953835";
 // Parâmetro:
 // - referência __ptr: ponteiro onde será preenchido
 //    com o valor de RA[]
+// -__index: Posição de referência do indice
 // Dependência:
 // - constante RA
-void preencherPonteiro(int *__ptr) {
-  int index;
-  for (index = 0; index < strlen(RA); index++) {
-    *(__ptr + index) = RA[index] - '0';
-  }
+void preencherPonteiro(int* __ptr, int __index) {
+  __ptr[__index] = RA[__index] - '0';
 }
 
 //******************************************************************************
@@ -31,19 +29,14 @@ void preencherPonteiro(int *__ptr) {
 // - Mostra o conteũdo do ponteiro, sendo cada linha uma posição do ponteiro
 // Parâmetro:
 // - constante __ptr: ponteiro que serã lido
-// Dependência:
-// - constante RA
-void exibirRa(const int *__ptr) {
-  int index;
-  for (index = 0; index < strlen(RA); index++) {
-    printf("%i\n", __ptr[index]);
-  }
+void exibirRa(int* __ptr, int __index) {
+  printf("%i\n", __ptr[__index]);
 }
 
-void percorrerVetor(int *__ptr, void (*__operacao)(int *)) {
+void percorrerVetor(int* __ptr, void (*__operacao)(int*, int)) {
   int index;
   for (index = 0; index < strlen(RA); index++) {
-    __operacao(__ptr);
+    __operacao(__ptr, index);
   }
 }
 
@@ -51,9 +44,9 @@ void percorrerVetor(int *__ptr, void (*__operacao)(int *)) {
 // Descrição:
 // - Programa principal
 int main() {
-  int *ra = calloc(strlen(RA), sizeof(ra));
-  preencherPonteiro(ra);
-  exibirRa(ra);
+  int* ra = calloc(strlen(RA), sizeof(ra));
+  percorrerVetor(ra, preencherPonteiro);
+  percorrerVetor(ra, exibirRa);
   free(ra);
   return 0;
 }
