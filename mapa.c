@@ -33,6 +33,14 @@ void exibirRa(int* __ptr, int __index) {
   printf("%i\n", __ptr[__index]);
 }
 
+//******************************************************************************
+// Descrição:
+// - percorre todo o vetor e realiza uma operação determinada
+// Parâmetro:
+// - __ptr: ponteiro que serã percorrido
+// - __operacao: operação que será executada
+// Dependência:
+// - const RA
 void percorrerVetor(int* __ptr, void (*__operacao)(int*, int)) {
   int index;
   for (index = 0; index < strlen(RA); index++) {
