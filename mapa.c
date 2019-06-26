@@ -40,6 +40,13 @@ void exibirRa(const int *__ptr) {
   }
 }
 
+void percorrerVetor(int *__ptr, void (*__operacao)(int *)) {
+  int index;
+  for (index = 0; index < strlen(RA); index++) {
+    __operacao(__ptr);
+  }
+}
+
 //******************************************************************************
 // Descrição:
 // - Programa principal
