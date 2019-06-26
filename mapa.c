@@ -19,7 +19,7 @@ const char RA[] = "19953835";
 //    com o valor de RA[]
 // Dependência:
 // - constante RA
-void preencherPonteiro(char *__ptr) {
+void preencherPonteiro(int *__ptr) {
   int index;
   for (index = 0; index < sizeof(__ptr); index++) {
     *(__ptr + index) = RA[index] - '0';
@@ -33,7 +33,7 @@ void preencherPonteiro(char *__ptr) {
 // - constante __ptr: ponteiro que serã lido
 // Dependência:
 // - constante RA
-void exibirRa(const char *__ptr) {
+void exibirRa(const int *__ptr) {
   int index;
   for (index = 0; index < sizeof(__ptr); index++) {
     printf("%i\n", __ptr[index]);
@@ -44,7 +44,7 @@ void exibirRa(const char *__ptr) {
 // Descrição:
 // - Programa principal
 int main() {
-  char *ra = calloc(strlen(RA), sizeof(ra));
+  int *ra = calloc(strlen(RA), sizeof(ra));
   preencherPonteiro(ra);
   exibirRa(ra);
   free(ra);
