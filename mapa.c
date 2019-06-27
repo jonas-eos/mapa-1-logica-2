@@ -20,12 +20,7 @@ const char RA[] = "19953835";
 // -__index: Posição de referência do indice
 // Dependência:
 // - constante RA
-void preencherPonteiro(int* __ptr) {
-  int index;
-  for (index = 0; index < strlen(RA); index++) {
-    *(__ptr + index) = RA[index] - '0';
-  }
-}
+void preencherPonteiro(int* __ptr);
 
 //******************************************************************************
 // Descrição:
@@ -35,12 +30,7 @@ void preencherPonteiro(int* __ptr) {
 // - __operacao: operação que será executada
 // Dependência:
 // - constante RA
-void exibirRa(const int* __ptr) {
-  int index = 0;
-  do {
-    printf("%i\n", __ptr[index]);
-  } while (++index < strlen(RA));
-}
+void exibirRa(const int* __ptr);
 
 //******************************************************************************
 // Descrição:
@@ -51,4 +41,20 @@ int main() {
   exibirRa(ra);
   free(ra);
   return 0;
+}
+
+//******************************************************************************
+void exibirRa(const int* __ptr) {
+  int index = 0;
+  do {
+    printf("%i\n", __ptr[index]);
+  } while (++index < strlen(RA));
+}
+
+//******************************************************************************
+void preencherPonteiro(int* __ptr) {
+  int index;
+  for (index = 0; index < strlen(RA); index++) {
+    *(__ptr + index) = RA[index] - '0';
+  }
 }
