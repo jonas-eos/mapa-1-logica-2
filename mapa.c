@@ -1,16 +1,16 @@
-// Descrição
-// - A partir de uma constante do tipo char[], é preenchido um
-//    ponteiro do tipo int com todo conteúdo desta constante char[]
-//    em seguida é mostrado todo o conteúdo desta constante, sendo cada linha
-//    uma posição deste ponteiro que foi preenchido.
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
+//##############################################################################
+// Constantes
+
 /// Constante com o valor prédeterminado do RA
 const char RA[] = "19953835";
 
-//******************************************************************************
+//##############################################################################
+// Prototipos dos métodos
+
 // Descrição:
 // - Preencher um ponteiro com a constante RA por index convertendo para char de
 //    forma explicita.
@@ -22,7 +22,6 @@ const char RA[] = "19953835";
 // - constante RA
 void preencherPonteiro(int* __ptr);
 
-//******************************************************************************
 // Descrição:
 // - percorre todo o vetor e realiza uma operação determinada
 // Parâmetro:
@@ -32,9 +31,8 @@ void preencherPonteiro(int* __ptr);
 // - constante RA
 void exibirRa(const int* __ptr);
 
-//******************************************************************************
-// Descrição:
-// - Programa principal
+//##############################################################################
+// Programa principal
 int main() {
   int* ra = calloc(strlen(RA), sizeof(ra));
   preencherPonteiro(ra);
@@ -42,6 +40,8 @@ int main() {
   free(ra);
   return 0;
 }
+//##############################################################################
+// Definições dos métodos
 
 //******************************************************************************
 void exibirRa(const int* __ptr) {
